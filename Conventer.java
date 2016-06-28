@@ -46,30 +46,38 @@ public static void decimalToBinary()
     System.out.println("Please enter the decimal number to convert: ");
     String decimalCode = read.nextLine();
     System.out.println(decimalCode);
-    int decimalValue = Integer.parseInt(decimalCode);
     
-    while (int count != 100)
+    //zamiana String na Integer
+    int decimalValue = Integer.parseInt(decimalCode);
+    int counter = 0;
+    while (counter != 100)
     {
-        int[] binaryValue = new int[count];
-        if (decimalValue%2 = 1)
+        //tablica, do którego wpisywane będą warotsci bitów
+        int[] binaryValue = new int[counter];
+        
+        //warunki obliczające wartosc kazdego bitu
+        //podziel wartosc dziesietną przez 2
+        //jesli reszta z dzielenia rowna 1 wpisz do tablicy 1, analogicznie w przypadku wartosci zero
+        //jesli wartosc dziesietna osiagie wartosc zero, program wychodzi z pętli
+        if (decimalValue % 2 == 1)
         {
-            binaryValue[count] = 1;
             decimalValue = decimalValue / 2;
+            binaryValue[counter] = 1;
             if (decimalValue == 0)
             {
-                count = 100;
+                counter = 100;
             }
-            count++;
+            counter++;
         }
-        if (decimalValue%2 = 0)
+        if (decimalValue % 2 == 0)
         {
-            binaryValue[count] = 0;
             decimalValue = decimalValue / 2;
+            binaryValue[counter] = 0;
             if (decimalValue == 0)
             {
-                count = 100;
+                counter = 100;
             }
-            count++;
+            counter++;
         }
         
        }
