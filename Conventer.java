@@ -8,6 +8,9 @@ public static void main()
 {
     binaryToDecimal();
 }
+/*
+ * Metoda zamieniająca liczbę w systemie binarnym na liczbę w systemie dziesiętnym
+ */
 public static void binaryToDecimal() 
 {
     Scanner read = new Scanner(System.in);
@@ -39,6 +42,9 @@ public static void binaryToDecimal()
     System.out.println("Decimal format: " + decimalValue);
                   
     }
+    /*
+     * Metoda zamieniająca liczbę dzięsiętna na liczbę w systemie binarnym
+     */
 public static void decimalToBinary()
     {
     Scanner read = new Scanner(System.in);
@@ -50,11 +56,11 @@ public static void decimalToBinary()
     //zamiana String na Integer
     int decimalValue = Integer.parseInt(decimalCode);
     int counter = 0;
+    
+    //tablica, do którego wpisywane będą warotsci bitów
+    int[] binaryValue = new int[counter];
     while (counter != 100)
     {
-        //tablica, do którego wpisywane będą warotsci bitów
-        int[] binaryValue = new int[counter];
-        
         //warunki obliczające wartosc kazdego bitu
         //podziel wartosc dziesietną przez 2
         //jesli reszta z dzielenia rowna 1 wpisz do tablicy 1, analogicznie w przypadku wartosci zero
@@ -79,9 +85,13 @@ public static void decimalToBinary()
             }
             counter++;
         }
-        
        }
    
+   for (int i =0; i < (binaryValue.length/2); i++)
+   {
+       binaryValue[i] = binaryValue[binaryValue.length - i];
+    }
+    System.out.println("Binary format: " + binaryValue);
     }
 }
 
