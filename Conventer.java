@@ -17,7 +17,6 @@ public static void binaryToDecimal()
     //Odebranie od uzytkownika liczby binarnej
     System.out.println("Please enter the binary code to convert: ");
     String binaryCode = read.nextLine();
-    System.out.println(binaryCode);
     
     int binaryCodeLength = binaryCode.length();
     int binaryCodeIndex = binaryCode.length() - 1;
@@ -50,48 +49,26 @@ public static void decimalToBinary()
     Scanner read = new Scanner(System.in);
     //Odebranie od uzytkownika liczby dziesiętnej
     System.out.println("Please enter the decimal number to convert: ");
-    String decimalCode = read.nextLine();
-    System.out.println(decimalCode);
+    int decimalValue = read.nextInt();
     
-    //zamiana String na Integer
-    int decimalValue = Integer.parseInt(decimalCode);
-    int counter = 0;
+    ArrayList<Integer> binaryValues = new ArrayList<>();
     
-    //tablica, do którego wpisywane będą warotsci bitów
-    int[] binaryValue = new int[counter];
-    while (counter != 100)
+    while (decimalValue != 0)
     {
-        //warunki obliczające wartosc kazdego bitu
-        //podziel wartosc dziesietną przez 2
-        //jesli reszta z dzielenia rowna 1 wpisz do tablicy 1, analogicznie w przypadku wartosci zero
-        //jesli wartosc dziesietna osiagie wartosc zero, program wychodzi z pętli
-        if (decimalValue % 2 == 1)
-        {
-            decimalValue = decimalValue / 2;
-            binaryValue[counter] = 1;
-            if (decimalValue == 0)
-            {
-                counter = 100;
-            }
-            counter++;
-        }
-        if (decimalValue % 2 == 0)
-        {
-            decimalValue = decimalValue / 2;
-            binaryValue[counter] = 0;
-            if (decimalValue == 0)
-            {
-                counter = 100;
-            }
-            counter++;
-        }
+       //Obliczenie reszty z dzielenia
+        int binaryValue = decimalValue % 2;
+        //dodanie reszty do listy
+        binaryValues.add(binaryValue);
+        //dzielenie wartosci dziesietnej przez 2
+        decimalValue = decimalValue / 2;
        }
+   //odwrócenie kolejnosci elementów
+   Collections.reverse(binaryValues);
+   //zamiana Arraylist na tablice
+   binaryValues.toArray();
    
-   for (int i =0; i < (binaryValue.length/2); i++)
-   {
-       binaryValue[i] = binaryValue[binaryValue.length - i];
-    }
-    System.out.println("Binary format: " + binaryValue);
+   System.out.println("Binary format: " + binaryValues);
+   
     }
 }
 
