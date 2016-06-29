@@ -3,11 +3,38 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.lang.String;
 import java.lang.Integer;
+import java.lang.System;
 
 public class Conventer {
+    
 public static void main()
 {
-    binaryToDecimal();
+   Scanner in = new Scanner(System.in);
+   //tworzenie separatora linii tekstu
+   String newLine = System.getProperty("line.separator");
+   while (true)
+   {
+       System.out.println("Please select:" + newLine + "[1] to convert binary number to decimal number" + newLine + 
+       "[2] to convert decimal number to binary number" + newLine + "[3] to exit the program");
+       int choice = in.nextInt();
+       switch (choice)
+       {
+           case 1:
+                binaryToDecimal();
+                break;
+           case 2:
+                decimalToBinary();
+                break;
+           case 3:
+                System.out.println("Exit");
+                System.exit(0);
+                break;
+           default:
+                System.out.println("Invalid selection");
+                break;
+       }
+      
+}
 }
 /*
  * Metoda zamieniająca liczbę w systemie binarnym na liczbę w systemie dziesiętnym
@@ -69,6 +96,7 @@ public static void decimalToBinary()
    Integer[] binaryArray = binaryValues.toArray(new Integer[binaryValues.size()]);
    
    int number = 0;
+   String newLine = System.getProperty("line.separator");
    
    System.out.println("Binary format: ");
    
@@ -77,6 +105,7 @@ public static void decimalToBinary()
        number = Integer.parseInt(String.valueOf(binaryArray[i]));
        System.out.print(number);
     }
+    System.out.println(newLine);
     }
 }
 
