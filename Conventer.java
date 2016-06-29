@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.lang.String;
+import java.lang.Integer;
 
 public class Conventer {
 public static void main()
@@ -51,24 +52,31 @@ public static void decimalToBinary()
     System.out.println("Please enter the decimal number to convert: ");
     int decimalValue = read.nextInt();
     
-    ArrayList<Integer> binaryValues = new ArrayList<>();
+    ArrayList<Integer> binaryValues = new ArrayList<Integer>();
     
     while (decimalValue != 0)
     {
        //Obliczenie reszty z dzielenia
-        int binaryValue = decimalValue % 2;
+        int bitValue = decimalValue % 2;
         //dodanie reszty do listy
-        binaryValues.add(binaryValue);
+        binaryValues.add(bitValue);
         //dzielenie wartosci dziesietnej przez 2
         decimalValue = decimalValue / 2;
        }
    //odwrócenie kolejnosci elementów
    Collections.reverse(binaryValues);
    //zamiana Arraylist na tablice
-   binaryValues.toArray();
+   Integer[] binaryArray = binaryValues.toArray(new Integer[binaryValues.size()]);
    
-   System.out.println("Binary format: " + binaryValues);
+   int number = 0;
    
+   System.out.println("Binary format: ");
+   
+   for (int i = 0; i < binaryArray.length; i++)
+   {
+       number = Integer.parseInt(String.valueOf(binaryArray[i]));
+       System.out.print(number);
+    }
     }
 }
 
