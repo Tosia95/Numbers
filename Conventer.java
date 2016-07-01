@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.lang.String;
 import java.lang.Integer;
 import java.lang.System;
+import java.lang.Character;
 
 public class Conventer {
     
@@ -106,6 +107,105 @@ public static void decimalToBinary()
        System.out.print(number);
     }
     System.out.println(newLine);
+    }
+    /*
+     * Metoda zamienijąca liczbę w systemie dzisiętnym na liczbie w systemie szesnastkowym
+     */
+public static void decimalToHex ()
+    {
+        Scanner read = new Scanner(System.in);
+    //Odebranie od uzytkownika liczby dziesiętnej
+    System.out.println("Please enter the decimal number to convert: ");
+    int decimalValue = read.nextInt();
+    
+    ArrayList<Character> hexValues = new ArrayList<Character>();
+    
+    while (decimalValue != 0)
+    {
+       //Obliczenie reszty z dzielenia
+        int hexValue = decimalValue % 16;
+        if (hexValue <10)
+            {
+                char b = Integer.toString(hexValue).charAt(0);
+                //dodanie reszty do listy
+                hexValues.add(b);
+        }   
+        else if (hexValue == 10)
+            {
+                hexValues.add('A');
+            }
+        else if (hexValue == 11)
+                {
+                hexValues.add('B');
+            }
+        else if (hexValue == 12)
+            {
+                hexValues.add('C');
+            }
+        else if (hexValue == 13)
+            {
+                hexValues.add('D');
+            }
+        else if (hexValue == 14)
+            {
+                hexValues.add('E');
+            }
+        else if (hexValue == 15)
+            {
+                hexValues.add('F');
+            }
+    
+        //dzielenie wartosci dziesietnej przez 2
+        decimalValue = decimalValue / 16;
+       }
+       Collections.reverse(hexValues);
+       
+       Character[] hexArray = hexValues.toArray(new Character[hexValues.size()]);
+       
+       String hexNumber = "";
+       
+       for (Character s : hexArray)
+        {
+       hexNumber += s;
+    }
+       System.out.println("Hexadecimal format: 0x" + hexNumber);
+    }
+    /*
+ * Metoda zamieniająca liczbę w systemie szesnastkowym na liczbę w systemie dziesiętnym
+ */
+public static void hexToDecimal() 
+{
+    Scanner read = new Scanner(System.in);
+    //Odebranie od uzytkownika liczby binarnej
+    System.out.println("Please enter the binary code to convert: ");
+    String hexCode = read.nextLine();
+    
+    int hexCodeLength = hexCode.length();
+    int hexCodeIndex = hexCode.length() - 1;
+    int decimalValue = 0;
+    char[] number = hexCode.toCharArray();
+    
+    for (int count = 0; count < hexCodeLength; count++)
+    {
+       if (number[count] == {'0','1','2','3','4','5','6','7','8','9','0'})
+       {
+           
+        }
+        
+        
+        //Przeliczenie liczby w systemie binarnym na dziesiętny. 
+        //decimalPart = wartosc jednego bitu
+        int bitValue = number * (int) Math.pow(2,  binaryCodeIndex);
+        
+        //sumowanie wartosci kazdego bitu
+        decimalValue += bitValue;
+        
+        //zmiejszanie wartosci indeksu; indeks = numer bitu
+        binaryCodeIndex -=1;
+    }
+    
+    System.out.println("Decimal format: " + decimalValue);
+                  
     }
 }
 
