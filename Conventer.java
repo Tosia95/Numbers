@@ -183,25 +183,49 @@ public static void hexToDecimal()
     int hexCodeLength = hexCode.length();
     int hexCodeIndex = hexCode.length() - 1;
     int decimalValue = 0;
+    int remainder = 0;
     char[] number = hexCode.toCharArray();
     
     for (int count = 0; count < hexCodeLength; count++)
     {
-       if (number[count] == {'0','1','2','3','4','5','6','7','8','9','0'})
+       if (number[count] == '0')
        {
-           
+           remainder = Character.getNumericValue(number[count]);
         }
-        
+       else if (number[count] == 'A')
+       {
+           remainder = 10;
+        }
+        else if (number[count] == 'B')
+       {
+           remainder = 11;
+        }
+        else if (number[count] == 'C')
+       {
+           remainder = 12;
+        }
+        else if (number[count] == 'D')
+       {
+           remainder = 13;
+        }
+        else if (number[count] == 'E')
+       {
+           remainder = 14;
+        }
+        else if (number[count] == 'F')
+       {
+           remainder = 15;
+        }
         
         //Przeliczenie liczby w systemie binarnym na dziesiętny. 
         //decimalPart = wartosc jednego bitu
-        int bitValue = number * (int) Math.pow(2,  binaryCodeIndex);
+        int hexValue =  remainder * (int) Math.pow(16,  hexCodeIndex);
         
         //sumowanie wartosci kazdego bitu
-        decimalValue += bitValue;
+        decimalValue += hexValue;
         
         //zmiejszanie wartosci indeksu; indeks = numer bitu
-        binaryCodeIndex -=1;
+        hexCodeIndex -=1;
     }
     
     System.out.println("Decimal format: " + decimalValue);
