@@ -188,9 +188,11 @@ public static void hexToDecimal()
     
     for (int count = 0; count < hexCodeLength; count++)
     {
-       if (number[count] == '0')
+       if (number[count]=='0'&&number[count]=='1'&&number[count]=='2'&&number[count]=='3'
+       &&number[count]=='4'&&number[count]=='5'
+       &&number[count]=='6'&&number[count]=='7'&&number[count]=='8'&&number[count]=='9')
        {
-           remainder = Character.getNumericValue(number[count]);
+           remainder = Integer.parseInt(new String(number));
         }
        else if (number[count] == 'A')
        {
