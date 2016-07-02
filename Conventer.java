@@ -240,6 +240,14 @@ public static void hexToDecimal()
     System.out.println("Decimal format: " + decimalValue);
                   
     }
+public static void hexTobinary ()
+{
+    ????
+}
+pulic static void binaryToHex ()
+{
+    ????
+}
 }
 
 
