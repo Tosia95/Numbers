@@ -16,7 +16,8 @@ public static void main()
    while (true)
    {
        System.out.println("Please select:" + newLine + "[1] to convert binary number to decimal number" + newLine + 
-       "[2] to convert decimal number to binary number" + newLine + "[3] to exit the program");
+       "[2] to convert decimal number to binary number" + newLine + "[3] to convert hexadecimal number to decimal number" + newLine
+       + "[4] to convert decimal number to hexadecimal number" + newLine + "[5] to exit the program");
        int choice = in.nextInt();
        switch (choice)
        {
@@ -27,6 +28,12 @@ public static void main()
                 decimalToBinary();
                 break;
            case 3:
+                hexToDecimal();
+                break;
+           case 4:
+                decimalToHex ();
+                break;
+           case 5:
                 System.out.println("Exit");
                 System.exit(0);
                 break;
@@ -177,7 +184,7 @@ public static void hexToDecimal()
 {
     Scanner read = new Scanner(System.in);
     //Odebranie od uzytkownika liczby binarnej
-    System.out.println("Please enter the binary code to convert: ");
+    System.out.println("Please enter the hexadecimal code to convert: ");
     String hexCode = read.nextLine();
     
     int hexCodeLength = hexCode.length();
